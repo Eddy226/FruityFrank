@@ -1,0 +1,7 @@
+POMME=10  
+CERISE=9-11
+BANANE=4-6
+POIRE=2-4
+CITRON=0-2
+enemiJaune=4
+enemiViolet=2
