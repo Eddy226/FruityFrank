@@ -121,7 +121,7 @@ public class ManagerNiveaux
                 if ( cellule_x == cellule_milieu_x && cellule_y == cellule_milieu_y )
                 {
                 	celluleCentre = new CelluleCentre(cellule_x * LARGEUR_PIXEL_CELLULE + CONTOUR_JEU, calculerPosY(cellule_y), LARGEUR_PIXEL_CELLULE, hauteurcellule);
-                	Centre centre = new Centre(imgCentre, celluleCentre);
+                	centre = new Centre(imgCentre, celluleCentre);
                 	celluleCentre.setSprite(centre);
                 	cellule = celluleCentre;
                 }
@@ -262,11 +262,7 @@ public class ManagerNiveaux
     public void animer()
     {
         if ( centre != null )
-        {
        		centre.animer();
-        	if ( centre.getEtat() == TypeEtat.MORT )
-        		centre = null;	// Suppression du sprite si plus actif
-        }
 
         LinkedList<Pomme> clone = (LinkedList<Pomme>) lklPomme.clone();
         for ( Pomme pomme : clone )
@@ -303,5 +299,11 @@ public class ManagerNiveaux
 	{
 		if ( centre != null )
 			celluleCentre.setSprite(centre);
+	}
+
+	public void mangerCentre()
+	{
+		centre = null;
+		//centre.setEtat(TypeEtat.MORT);
 	}
 }

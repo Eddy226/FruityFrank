@@ -84,7 +84,6 @@ public class ManagerMonstres
 		}
 		return false;
 	}
-
 	
     public void animer()
     {
@@ -92,7 +91,7 @@ public class ManagerMonstres
         	monstre.animer();
         
         // Les montres ne sont générés que si le Centre n'a pas été mangé par le joueur
-        if (lklMonstresJaune.size() < nbMonstresJaune ) //&& managerNiveaux.getCelluleCentre().getSprite() instanceof Centre )
+        if (lklMonstresJaune.size() < nbMonstresJaune && managerNiveaux.getCelluleCentre().getSprite() instanceof Centre )
         {
             temporisationMJauneEnCours++;
             if (temporisationMJauneEnCours > temporisationMJauneApparition)
@@ -137,6 +136,4 @@ public class ManagerMonstres
 		lklMonstresJaune.remove(monstre);
 		lklExplosion.add(new Explosion(monstre));
 	}
-
-
 }

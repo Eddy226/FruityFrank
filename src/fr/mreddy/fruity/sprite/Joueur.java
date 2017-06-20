@@ -57,8 +57,8 @@ public class Joueur extends Sprite
         	}
         	celluleCourante.setElement( Element.CHEMIN );
         }
-        //else if ( celluleCourante.getSprite() != null && celluleCourante.getSprite() instanceof Centre) )
-        //	managerNiveau.mangerCentre();
+        else if ( celluleCourante.getSprite() != null && celluleCourante.getSprite() instanceof Centre )
+        	managerNiveau.mangerCentre();
         
         // SI cellule entre cellule alors continue sur sa lanc�e
         if (deplacementY != 0 && celluleCourante.getHauteur() == ManagerNiveaux.HAUTEUR_PIXEL_INTERCELLULE)
@@ -151,15 +151,18 @@ public class Joueur extends Sprite
     		}
     	
     		Sprite sprite = cellule.getSprite();
-    		if ( sprite == null || sprite instanceof Centre )
-    			return true;
-    		else if ( sprite instanceof Pomme )
+    		//if ( sprite == null || sprite instanceof Centre )
+    		//	return true;
+    		//else 
+    		if ( sprite instanceof Pomme )
     		{
     			if ( direction == Direction.GAUCHE )
     				return ((Pomme)sprite).deplacerGauche(vitesseX);
     			else if ( direction == Direction.DROITE )
     				return ((Pomme)sprite).deplacerDroite(vitesseX);
     		}
+    		else
+    			return true;
     	}
   		return false;
     }
